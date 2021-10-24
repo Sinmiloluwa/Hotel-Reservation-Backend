@@ -202,7 +202,7 @@
   		<div class="container">
   		<div class="row gx-5 text-center">
   			<div class="col-md-4 mb-4 mt-5">
-  				<i class="fa fa-wifi"></i>
+  				<i class="fa fa-spa"></i>
   			</div>
   			<div class="col-md-4 mb-4 mt-5">
   				<i class="fa fa-wifi"></i>
