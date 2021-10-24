@@ -1,0 +1,308 @@
+body{
+    font-family: 'Nunito','Roboto',sans-serif;
+  } 
+  
+   /* Carousel styling */
+        #introCarousel,
+        .carousel-inner,
+        .carousel-item,
+        .carousel-item.active {
+          height: 80vh;
+        }
+  
+        .carousel-item:nth-child(1) {
+          background-image: url('../../public/img/pexels-thorsten-technoman-338504.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+  
+        .carousel-item:nth-child(2) {
+          background-image: url('../../public/img/pexels-wewe-yang-4566719.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center bottom;
+        }
+  
+        .carousel-item:nth-child(3) {
+          background-image: url('../../public/img/pexels-boonkong-boonpeng-1134176.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+  
+  .reservation{
+    /*margin: 0;*/
+    background-color: grey;
+    
+  }
+     
+  
+  .wrapper {
+    background: #007efe;
+    padding: 30px;
+  }
+  
+  .wrapper label {
+    color: white;
+    font-weight: bold;
+  }
+  
+  #services i {
+    font-size: 40px;
+    
+  }
+  
+  .service_header h1 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family: 'Nunito';
+  }
+  
+  #partners {
+    margin-top: 80px
+  } 
+  
+  /* Slider */
+  
+  .slick-slide {
+      margin: 0px 20px;
+  }
+  
+  .slick-slide img {
+      width: 100%;
+  }
+  
+  .slick-slider
+  {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+              user-select: none;
+      -webkit-touch-callout: none;
+      -khtml-user-select: none;
+      -ms-touch-action: pan-y;
+          touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+  }
+  
+  .slick-list
+  {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+  }
+  .slick-list:focus
+  {
+      outline: none;
+  }
+  .slick-list.dragging
+  {
+      cursor: pointer;
+      cursor: hand;
+  }
+  
+  .slick-slider .slick-track,
+  .slick-slider .slick-list
+  {
+      -webkit-transform: translate3d(0, 0, 0);
+         -moz-transform: translate3d(0, 0, 0);
+          -ms-transform: translate3d(0, 0, 0);
+           -o-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+  }
+  
+  .slick-track
+  {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+  }
+  .slick-track:before,
+  .slick-track:after
+  {
+      display: table;
+      content: '';
+  }
+  .slick-track:after
+  {
+      clear: both;
+  }
+  .slick-loading .slick-track
+  {
+      visibility: hidden;
+  }
+  
+  .slick-slide
+  {
+      display: none;
+      float: left;
+      height: 100%;
+      min-height: 1px;
+  }
+  [dir='rtl'] .slick-slide
+  {
+      float: right;
+  }
+  .slick-slide img
+  {
+      display: block;
+  }
+  .slick-slide.slick-loading img
+  {
+      display: none;
+  }
+  .slick-slide.dragging img
+  {
+      pointer-events: none;
+  }
+  .slick-initialized .slick-slide
+  {
+      display: block;
+  }
+  .slick-loading .slick-slide
+  {
+      visibility: hidden;
+  }
+  .slick-vertical .slick-slide
+  {
+      display: block;
+      height: auto;
+      border: 1px solid transparent;
+  }
+  .slick-arrow.slick-hidden {
+      display: none;
+  }   
+  
+    /*Destinations*/
+  
+  #destinations {
+    margin-top: 150px
+  }
+  .wrappers{margin:10vh}
+  
+  
+  .card{
+    border: none;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+   overflow:hidden;
+   border-radius:20px;
+   min-height:450px;
+     box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+   }
+  
+  
+  
+   .card-has-bg{
+   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    background-size:120%;
+    background-repeat:no-repeat;
+    background-position: center center;
+  }
+  
+  .about {
+    text-decoration: none;
+  }
+  
+    .card-has-bg:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);}
+  
+  
+    .card-has-bg:hover {
+      transform: scale(0.98);
+       box-shadow: 0 0 5px -2px rgba(0,0,0,0.3);
+      background-size:130%;
+       transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+     }
+  
+      .card-img-overlay {
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        background: rgb(35,79,109);
+       background: linear-gradient(0deg, rgba(4,69,114,0.5) 0%, rgba(4,69,114,1) 100%);
+       }
+    
+  
+   .card-footer{
+    background: none;
+     border-top: none;
+   }
+      .media
+       img{
+         border:solid 3px rgba(234,95,0,0.3);
+       }
+   .card-meta{color:orange}
+   .card-body{ 
+     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+     .card-body:hover{
+       margin-top:30px;
+       transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+     }
+   .card-body{cursor: pointer;
+   transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+   .card-img-overlay {
+    transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+   background: rgb(35,79,109);
+  background: linear-gradient(0deg, rgba(35,79,109,0.3785889355742297) 0%, rgba(69,95,113,1) 100%);
+  }
+  
+  .no-hotel .result {
+    margin-top: 1500px
+  }
+  
+  
+  .copyright {
+    background: #007efe;
+    padding: 20px
+  }
+  
+  #footer ul li{
+    list-style: none;
+  }
+  
+  #footer ul li a{
+    text-decoration: none;
+    color: grey
+  }
+  
+  #footer .line {
+    padding-left: 20px;
+    text-align: center; 
+  }
+  
+  #footer ul li i {
+    padding-left: 10px;
+    font-size: 13px
+  }
+  
+        /* Height for devices larger than 576px */
+        @media (min-width: 992px) {
+          #introCarousel {
+            margin-top: -58.59px;
+          }
+        }
+  
+        .navbar .nav-link {
+          color: #fff !important;
+        }
+  
