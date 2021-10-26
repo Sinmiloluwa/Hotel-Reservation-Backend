@@ -14,7 +14,7 @@ class RemoveAttractionIdColumn extends Migration
     public function up()
     {
         Schema::table('hotels', function (Blueprint $table) {
-            $table->dropForeign('attraction_id');
+            $table->dropForeign('hotels_attraction_id_foreign');
             $table->dropColumn('attraction_id');
         });
     }
