@@ -68,6 +68,7 @@
       <div class="card-body">
         <h3 class="card-title">{{$hotel->name}}</h3>
         <p class="card-text">{{$hotel->str_address}}</p>
+        
       </div>
     </div>
   </div>

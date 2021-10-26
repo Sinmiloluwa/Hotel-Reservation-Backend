@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class HotelController extends Controller
 {
@@ -85,6 +87,14 @@ class HotelController extends Controller
         return view('hotel.listing', compact('hotels','attractions'));
     }
 
+    public function reservationView($id)
+    {
+        $hotel = Hotel::where('id',$id)->first();
+        $room_type_id = DB::table('rooms')->where('hotel_id',$id)->pluck('room_type_id');
+        $rooms = DB::table('room_type')->whereIn('id',$room_type_id)->get();
+        return view('hotel.reservation',compact('rooms','hotel'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -93,6 +103,74 @@ class HotelController extends Controller
     public function create()
     {
         //
+    }
+
+    public function makeReservation(Request $request, $hotel_id)
+    {
+       $validator =  Validator::make($request->all(), [
+            'room' => 'required',
+            'check_in' => 'required',
+            'check_out' => 'required',
+            'no_of_guests' => 'required',
+            'phone' => 'required|min:11|max:11|regex:/[0-9]{9}/'
+        ]);
+
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        }
+
+        $room_type_guest = DB::table('room_type')->where('name',$request->room)->value('max_guest');
+
+        if ($request->no_of_guests > $room_type_guest) {
+            return back()->with('error', 'The number of guests exceeded for '.$request->room);
+        }
+
+        $room_type_id = DB::table('room_type')->where('name',$request->room)->value('id');
+        $room_id = DB::table('rooms')->where('room_type_id',$room_type_id)->where('hotel_id',$hotel_id)->value('id');
+
+
+        $confirmation = DB::table('rooms')->where('room_type_id',$room_type_id)->where('hotel_id',$hotel_id)->where('status_id',2)->exists();
+
+        if ($confirmation) {
+            $isReserved = Reservation::where('room_id',$room_id)->where('hotel_id',$hotel_id)->exists();
+
+            if ($isReserved == true) {
+                if ( Reservation::where('room_id',$room_id)->where('check_in', '>=', $request->check_in)
+                ->where('check_out', '<=', $request->check_out)->exists()) {
+                    return back()->with('error','All '.$request->room. ' rooms have been reserved for this date');
+                } else {
+                    $reservation = new Reservation;
+                    $reservation->room_id = $room_id;
+                    $reservation->hotel_id = $request->hotel_id;
+                    $reservation->check_in = $request->check_in;
+                    $reservation->check_out = $request->check_out;
+                    $reservation->no_of_guests = $request->no_of_guests;
+                    $reservation->phone = $request->phone;
+                    $reservation->save();
+
+                    DB::table('rooms')->update([
+                        'status_id' => 1
+                    ]);
+
+                    return redirect()->route('hotel.list')->with('success', 'Your hotel room has been reserved');
+                }
+
+            } else {
+                return back()->with('error','All '.$request->room. ' rooms are occupied at the moment');
+            }
+
+
+        } else {
+            return back()->with('error','No '.$request->room. ' available at the moment');
+        }
+
+        
+
+        
+
+        
+
+
     }
 
     /**

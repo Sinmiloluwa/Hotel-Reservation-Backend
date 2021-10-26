@@ -82,7 +82,7 @@
               <div class="text-white text-center">
                 <h1 class="mb-3" style="font-weight: bold;">HOTEL GRANDEUR</h1>
                 <h5 class="mb-4">Elegance in all Simplicity</h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="#reservation"
+                <a class="btn btn-outline-light btn-lg m-2" href="{{route('hotel.list')}}"
                   role="button" rel="nofollow" >Make a reservation</a>
               </div>
              
@@ -97,7 +97,7 @@
               <div class="text-white text-center">
                 <h2 style="font-weight: bold;">OVERLOOKING THE OCEAN</h2>
                 <a class="btn btn-outline-light btn-lg m-2"
-                  href="#reservation"  role="button">Make a reservation</a>
+                  href="{{route('hotel.list')}}"  role="button">Make a reservation</a>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@
               <div class="text-white text-center">
                 <h2 style="font-weight: bold">BEAUTIFUL SCENERY</h2>
                 <a class="btn btn-outline-light btn-lg m-2"
-                  href="#reservation" role="button">Make a reservation</a>
+                  href="{{route('hotel.list')}}" role="button">Make a reservation</a>
               </div>
             </div>
           </div>

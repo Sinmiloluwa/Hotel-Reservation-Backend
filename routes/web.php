@@ -26,6 +26,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::post('/search', [HotelController::class,'searchHotel'])->name('hotel.search');
 Route::get('/listings', [HotelController::class,'allHotels'])->name('hotel.list');
 Route::get('/hotel/view/{id}', [HotelController::class, 'show'])->name('hotel.show');
+Route::get('/hotel/reservation/{id}', [HotelController::class, 'reservationView'])->name('reservation.home');
+Route::post('hotel/reserve/{id}', [HotelController::class, 'makeReservation'])->name('reservation.store');
 
 Auth::routes();
 

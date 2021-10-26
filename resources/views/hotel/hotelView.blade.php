@@ -1,42 +1,7 @@
 @extends('layouts.content')
 
 @section('content')
-<!--Main Navigation-->
-<header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-            >Disabled</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+@include('layouts.navbar')
 
 <div class="container">
     <div class="row justify-content-between">
@@ -68,13 +33,24 @@
                 </div>
         </div>
         <div class="col-md-6">
-            <div class="hotel-details gx-5">
-            <div class="hotel-name mb-3" style="padding-left: 150px;">
+            <div class="hotel-details gx-5" style="padding-left: 150px;">
+            <div class="hotel-name mb-3">
                 <h1><span>Hotel</span> {{$hotel->name}}</h1>
             </div>
-            <div class="hotel-name" style="padding-left: 150px;">
+            <div class="hotel-name">
                 <h3><span class="text-bold" style="font-weight: bold;">Street Address:</span> {{$hotel->str_address}}</h3>
             </div>
+            <div class="rating">
+                <h3><span class="text-bold" style="font-weight: bold;">State: </span>{{$hotel->state}} </h3>
+            </div>
+            <div class="rating">
+                <h3><span class="text-bold" style="font-weight: bold;">Reviews: </span> <i class="fa fa-star"></i></h3>
+            </div>
+            
+            <div class="row justify-content-end">
+              <a href="{{route('reservation.home',$hotel->id)}}" class="btn btn-primary" role="button" style="width: 200px;">Make a Reservation</a>
+            </div>
+           
             </div>
             
         </div>

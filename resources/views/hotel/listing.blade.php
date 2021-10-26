@@ -1,43 +1,13 @@
 @extends('layouts.content')
 
 @section('content')
-<!--Main Navigation-->
-<header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-            >Disabled</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+@include('layouts.navbar')
+@if(Session::has('success'))
+<div class="alert alert-success" id="alert">
+    <strong>Success:</strong>
+    {{Session::get('success')}}
+</div>
+@endif
     <!-- Listings -->
     <div class="container-fluid mt-5">
           <div class="text-center">
@@ -138,6 +108,7 @@
                         <h4 class="card-title"><strong>{{ucfirst($hotel->name)}}</strong></h4>
                         <p class="card-text">{{$hotel->str_address}}</p>
                         <p class="card-text">{{$hotel->state}}</p>
+                        
                     </div></a>
                 </div>
             </div>
