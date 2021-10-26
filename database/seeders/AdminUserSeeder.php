@@ -17,6 +17,7 @@ class AdminUserSeeder extends Seeder
         DB::table('users')->insert([
             'firstname' => 'Admin',
             'lastname' => 'Admin',
+            'role_id' => 1,
             'str_address' => 'No 5, capricorn road',
             'state' => 'Oyo',
             'zipcode' =>'234567',
