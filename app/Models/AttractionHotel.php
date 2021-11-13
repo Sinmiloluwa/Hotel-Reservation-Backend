@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobType extends Model
+class AttractionHotel extends Model
 {
     use HasFactory;
-    protected $table = 'job_type';
+    protected $table = 'attraction_hotel';
 }

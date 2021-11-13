@@ -12,6 +12,16 @@ class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // public function rooms()
+    // {
+    //     return $this->hasMany(Room::class,'user_id');
+    // }
+
+    public function scopeUser($query)
+    {
+        return $query->where('id',auth()->id());
+    }
+
     /**
      * The attributes that are mass assignable.
      *

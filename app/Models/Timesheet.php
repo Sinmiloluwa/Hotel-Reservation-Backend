@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobType extends Model
+class Timesheet extends Model
 {
     use HasFactory;
-    protected $table = 'job_type';
+    protected $table = 'timesheet';
+
+   
 }

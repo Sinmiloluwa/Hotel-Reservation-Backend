@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JobType extends Model
+class Employee extends Model
 {
     use HasFactory;
-    protected $table = 'job_type';
+
+    public function scopeEmployee($query)
+    {
+        return $query->where('id',auth()->id());
+    }
 }
